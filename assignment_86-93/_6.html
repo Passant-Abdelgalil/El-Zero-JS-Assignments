@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form action="">
+        <input type="number" name="elements" class="input" placeholder="Number Of Elements" />
+        <input type="text" name="texts" class="input" placeholder="Elements Text" />
+        <select name="type" class="input">
+            <option value="Div">Div</option>
+            <option value="Section">Section</option>
+        </select>
+        <input type="submit" name="create" value="Create" />
+        <div class="results"></div>
+    </form>
+
+    <script>
+        window.onload = () => {
+            // select & store DOM elements
+            let numberOfElems_elem = document.getElementsByName("elements")[0];
+            let elemType_elem = document.getElementsByName("type")[0];
+            let elemsText_elem = document.getElementsByName("texts")[0];
+            let btn = document.getElementsByName("create")[0];
+            let resultDiv = document.getElementsByClassName("results")[0];
+            let form = document.forms[0];
+
+            // styling elements
+            let padding = "10px";
+            let btnColor = "#009074";
+            let resultDivColorr = "#fc5a17";
+
+            // style form
+
+            form.style.display = "flex";
+            form.style.flexDirection = "column";
+            form.style.justifyContent = "space-between";
+            form.style.gap = "20px";
+            form.style.position = "absolute";
+            form.style.top = "50%";
+            form.style.left = "50%";
+            form.style.transform = "translate(-50%, -50%)";
+            form.style.width = "90%";
+            form.style.alignItems = "center";
+            // style number input field
+            numberOfElems_elem.style.padding = padding;
+            numberOfElems_elem.style.maxWidth = "80%";
+            numberOfElems_elem.style.width = "500px";
+            // style text input field
+            elemsText_elem.style.padding = padding;
+            elemsText_elem.style.maxWidth = "80%";
+            elemsText_elem.style.width = "500px";
+            // style type input field
+            elemType_elem.style.padding = padding;
+            elemType_elem.style.backgroundColor = "white";
+            elemType_elem.style.border = "1px solid black";
+            elemType_elem.style.maxWidth = "84.5%";
+            elemType_elem.style.width = "523px";
+            // style type input field
+            btn.style.padding = padding;
+            btn.style.backgroundColor = btnColor;
+            btn.style.color = "white";
+            btn.style.fontSize = "17px";
+            btn.style.fontWeight = "bold";
+            btn.style.border = "none";
+            btn.style.borderRadius = "5px";
+            btn.style.maxWidth = "84.5%";
+            btn.style.width = "523px";
+            // style result div
+            resultDiv.style.display = "flex";
+            resultDiv.style.justifyContent = "space-between";
+            resultDiv.style.padding = padding;
+            resultDiv.style.flexWrap = "wrap";
+            resultDiv.style.width = "100%";
+
+            btn.onclick = (event) => {
+
+                // prevent default behavior to prevent page refreshing
+                event.preventDefault();
+
+                // clear previously created elements
+                resultDiv.replaceChildren();
+
+                // fetch input data
+                let numberOfElems = numberOfElems_elem.value;
+                let elemsText = elemsText_elem.value;
+                let elemType = elemType_elem.value;
+
+                // loop numberOfElems-th iteration and create elements
+                for (let i = 0; i < numberOfElems; i++) {
+
+                    let elem = document.createElement(elemType.toLowerCase());
+                    elem.textContent = elemsText;
+                    elem.id = `id-${i + 1}`;
+                    elem.title = "Element";
+                    elem.className = "box";
+
+                    // style element
+                    elem.style.backgroundColor = resultDivColorr;
+                    elem.style.padding = padding;
+                    elem.style.flexBasis = "30%";
+                    elem.style.marginBottom = "20px";
+                    elem.style.textAlign = "center";
+                    elem.style.color = "white";
+                    elem.style.borderRadius = "5px";
+                    resultDiv.appendChild(elem);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

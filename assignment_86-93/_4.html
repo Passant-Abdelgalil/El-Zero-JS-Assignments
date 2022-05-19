@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+
+    <div class="one" title="two">Two</div>
+
+    <div class="two" title="one">One</div>
+
+    <script>
+        // select & store elements
+        let allDivs = document.querySelectorAll("div");
+        let firstDiv = allDivs[0];
+        let secDiv = allDivs[1];
+
+        // take copy of first div info
+        let firstDiv_title = firstDiv.title;
+        let firstDiv_content = firstDiv.innerHTML;
+
+
+        // change first div info with sec div info
+        firstDiv.title = secDiv.title;
+        firstDiv.innerHTML = secDiv.innerHTML;
+        // change sec div info with copied first div info
+        secDiv.title = firstDiv_title;
+        secDiv.innerHTML = firstDiv_content + ` ${allDivs.length}`;
+    </script>
+</body>
+
+</html>

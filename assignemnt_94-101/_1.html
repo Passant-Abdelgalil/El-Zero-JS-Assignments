@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Learn JavaScript</title>
+    <script>
+        let possibleLinks, linkOfInterest;
+        window.onload = () => {
+            possibleLinks = document.querySelectorAll("a.open");
+            linkOfInterest = [...possibleLinks].filter((elem) => elem.className === "open" && elem.textContent === "Elzero")[0];
+            window.open(linkOfInterest.href, "_self");
+        }
+    </script>
+</head>
+
+<body>
+    <a class="open" href="https://google.com">Google</a>
+    <a class="open" href="https://elzero.org">Elzero</a>
+    <a class="not" href="https://facebook.com">Facebook</a>
+    <a class="linked" href="https://linkedin.com">Elzero</a>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            /* Position*/
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            /* shape */
+            padding: 20px;
+            border: 1px solid #eee;
+        }
+
+        input {
+            /* position */
+            margin: 20px 0;
+
+            /* shape*/
+            padding: 10px;
+
+            /* Font */
+            font-size: 18px;
+        }
+
+        .result {
+            /* position */
+            margin: 20px 0;
+
+            /* Font */
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <input type="number" name="dollar" placeholder="USD Dollar" />
+        <div class="result">{0} USD Dollar = {0} Egyptian Pound</div>
+    </form>
+
+    <script>
+        // select input field to access inserted data 
+        let dollar_field = document.querySelector("input[name='dollar']");
+
+        // select result di to show results
+        let egP_field = document.querySelector(".result");
+
+        // oninput event custom function
+        dollar_field.oninput = (event) => {
+
+            let dollars = event.target.value;
+
+            let egPounds = (15.6 * dollars).toFixed(2);
+
+            // change div text content with the result
+            egP_field.textContent = `\{${dollars}\} USD Dollar = \{${egPounds} \} Egyptian Pound`;
+        }
+    </script>
+
+</body>
+
+</html>

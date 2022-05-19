@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="elzero" class="element" name="js">JavaScript</div>
+
+    <script>
+        // 1
+        let elem = document.querySelector(".element");
+        elem.style.color = "red";
+        // 2
+        elem = document.getElementById("elzero");
+        elem.style.color = "blue";
+        // 3
+        elems = document.getElementsByClassName("element");
+        if (elems !== undefined && elems.length > 0) elems[0].style.color = "red";
+        // 4
+        elems = document.getElementsByName("js");
+        if (elems !== undefined && elems.length > 0) elems[0].style.color = "yellow";
+        // 5
+        elems = document.getElementsByTagName("div");
+        if (elems !== undefined && elems.length > 0) elems[0].style.color = "green";
+        // 6
+        elem = document.querySelector("#elzero");
+        elem.style.color = "purple";
+        // 7
+        elem = document.querySelector('[name="js"]');
+        elem.style.color = "orange";
+        // 8
+        elem = document.querySelector("div");
+        elem.style.color = "Pink";
+        // 9
+        elems = document.body.children;
+        if (elems !== undefined && elems.length > 0) elems[0].style.color = "green";
+        // 10
+        elem = document.body.firstElementChild;
+        elem.style.color = "red";
+        // 11
+        elems = document.body.childNodes;
+        if (elems !== undefined && elems.length > 0) elems[1].style.color = "green";
+        // 12
+        elem = document.querySelectorAll("div");
+        elem[0].style.color = "Pink";
+        // 13
+        elem = document.querySelectorAll("#elzero");
+        elem[0].style.color = "purple";
+        // 14
+        elem = document.querySelectorAll("div[name='js']");
+        elem[0].style.color = "red";
+        // 15
+        elem = document.querySelectorAll(".element");
+        elem[0].style.color = "orange";
+
+    </script>
+</body>
+
+</html>
